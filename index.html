@@ -1,0 +1,87 @@
+<html>
+	<head>
+	<title>Quotes by Api</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	</head>
+	<body 
+	style="background-image: url(d22.jpg);
+		background-size:1600px 750px;
+		background-repeat:repeat";>
+		
+		
+	
+		<h1 class="display-1"style="margin-left:18%; font-weight:bold;color:white">Welcome to Quotes Website</h1>
+			
+			<div class="card" style="background-image: url(d1.jpg);
+			background-size:1200px 600px; background-repeat:no-repeat; width: 1200px; height: 600px;
+			margin-left:230px; margin-top:30px; border: 5px solid black";>
+
+  <div class="card-body">
+			<form>
+  <div class="mb-3">
+	<form>
+		<label class="form-label"style="margin-left:41%; font-family;Georgia, serif; font-weight:bold">Enter the Quotes:</label>
+				<input class="form-control" type="text" id="limit">
+				<br>
+    
+	<button class="btn btn-secondary" style="margin-left:43%;font-weight:bold" value="submit" id="submit">Quotes</button>
+  </div>
+	       <p> quotes: <span id="quote"></span> </p>
+		  
+ 
+ 
+</form>
+		
+  </div>
+</div>
+
+</div>
+			
+		<script>
+			
+
+
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '58c63c7c44mshc7997efd9945910p1deb12jsn1221b9be4faf',
+		'X-RapidAPI-Host': 'quotes-by-api-ninjas.p.rapidapi.com'
+	}
+};
+
+
+		const Quotesbyapi = (limit) => {
+			
+			
+				fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes?&limit='+limit,options)	
+					.then( (response) => response.json())
+							.then( (data) => {
+					
+								console.log(data)
+						
+								let j=[]
+						
+								for(let i=0; i < limit; i++){
+						
+								j[i] = '<br>' +(i+1)+'. ' + data[i].quote
+						
+					}
+					quote.innerHTML = j
+					
+		})
+	}
+	submit.addEventListener("click", (e) => {
+				e.preventDefault()
+				Quotesbyapi(limit.value)
+		})
+		
+		Quotesbyapi(1)
+	
+
+
+
+
+		</script>
+	</body>
+</html>
